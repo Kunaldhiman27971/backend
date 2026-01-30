@@ -30,7 +30,7 @@ app.delete("/notes/:index", (req, res) => {
     delete notes[req.params.index]
     res.status(200).json({
         message: "note deleted successfully"
-    })
+    }) 
 })
 
 //modify note
