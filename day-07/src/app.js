@@ -1,43 +1,40 @@
+const express=require('express');
+
+const app=express();
+
+app.use(express.json())
+
+const model=require('./models/notes.model');
 
 
-const express = require("express")
-const model = require("./models/notes.model")
-
-const app = express()
-//middlewar
-
-app.use(express.json());
-
-// Post API for notes
-
-app.post("/notes", async (req, res) => {
-    const { title, description, age } = req.body
-    const note = await model.create({
-        title, description
+// Post API to create a note
+app.post("/notes",async(req ,res)=>{
+    const{name,role,age}=req.body;
+    const note=await model.create({
+        name,role,age
     })
     res.status(201).json({
-        message: "note created",
+        message:"note created",
         note
     })
 })
 
 
-// Get API for notes
 
-app.get("/notes", async (req, res) => {
-    const notes = await model.find()
+// Get API to fetch all notes
+
+app.get("/notes",async(req ,res)=>{
+    const note= await model.find()// fetch all notes from db
+
     res.status(200).json({
-        message: "all notes",
-        notes
+        messade:"all notes fetched",
+        note
     })
+
 })
 
-// Delete API for notes
 
 
 
 
-
-module.exports = app
-
-
+module.exports=app;

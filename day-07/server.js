@@ -1,12 +1,11 @@
-const app=require("./src/app")
+require("dotenv").config()
+const app=require('./src/app');
 
-const database=require("./src/config/databse")
+const connect=require('./src/config/database');
 
 
+connect();
 
-
-database()
-
-app.listen(3000,()=>{
-    console.log("listening on port 3000")
-})
+app.listen(3000,(()=>{
+    console.log('listening on port 3000');
+}))
