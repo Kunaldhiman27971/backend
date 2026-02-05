@@ -3,10 +3,14 @@
 
 const express = require("express")
 const model = require("./models/note.model")
+const cors= require("cors")
+const path = require("path")
 
 
 const app = express()
-app.use(express.json())// middleware
+app.use(express.json())// middleware for  parsing json data
+app.use(cors())// middleware for cors error handlingor cross origin request handling
+app.use(express.static("./public"))//ye middleware hme static file serve krne me help krta h jo frontend ke build folder me h jb bhi hmara browser request aayega to ye middleware check krega ki kya wo file static folder me h ya nhi agr h to usko serve krdega nhi to next middleware pe chala jayega
 
 // post /api/employee 
 // create new empolyee and save data to mongodb
@@ -56,6 +60,12 @@ app.patch("/api/employee/:id", async (req, res) => {
     res.status(200).json({
         message: "employee data updated successfully"
     })
+})
+
+
+// static file serving for frontend to backend for the production build 
+app.use("*name", (req ,res)=>{
+    res.sendFile(path.join(__dirname, "..","/public/index.html"))
 })
 module.exports = app
 
