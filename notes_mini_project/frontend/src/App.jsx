@@ -6,7 +6,7 @@ function App() {
   const [employee, setEmployee] = useState([])
 
   function getEmployee() {
-     axios.get("http://localhost:3000/api/employee")
+     axios.get("https://backend-1-r63v.onrender.com/api/employee")
       .then((res) => {
         setEmployee(res.data.employee)
       })
@@ -21,7 +21,7 @@ function App() {
   function handleSubmit(e) {
     e.preventDefault()// form submit hone par page reload nahi hoga
     const { name, position, salary } = e.target.elements 
-    axios.post("http://localhost:3000/api/employee", {
+    axios.post("https://backend-1-r63v.onrender.com/api/employee", {
       name: name.value,
       position: position.value,
       salary: salary.value
@@ -36,7 +36,7 @@ function App() {
 
 
   function deleteEmployee(employee_id){
-    axios.delete("http://localhost:3000/api/employee/"+employee_id)
+    axios.delete("https://backend-1-r63v.onrender.com/api/employee/"+employee_id)
     .then(res=>{
       console.log(res.data.message)
       getEmployee()// employee data ko update karne ke liye getEmployee function call karenge
@@ -48,7 +48,7 @@ function App() {
 
   function updateEmployee(employee_id){
     const newsalary=prompt("Enter new salary")
-    axios.patch("http://localhost:3000/api/employee/"+employee_id,{salary:newsalary})
+    axios.patch("https://backend-1-r63v.onrender.com/api/employee/"+employee_id,{salary:newsalary})
     .then(res=>{
       console.log(res.data.message)
       getEmployee()// employee data ko update karne ke liye getEmployee function call karenge
