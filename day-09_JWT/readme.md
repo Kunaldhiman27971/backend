@@ -1,0 +1,1 @@
+Cookies storage:=>Cleint side pe hoti hai or is storage ka access server ke pass hota hai server can read and write cookies.
