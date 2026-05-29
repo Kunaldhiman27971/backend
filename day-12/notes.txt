@@ -1,0 +1,27 @@
+Socket.io:->Socket.io ek library hai jo client (browser/app) aur server ke beech real-time communication karwati hai. Isse bina page refresh kiye data instantly send aur receive ho sakta hai.
+Isme users server se connection bnake rkhte hai or usi ke through baat cheet hoti hai.
+
+Example: Jab WhatsApp par koi message bhejta hai, to Socket.io ki wajah se dusre user ko message turant dikh jata hai, bina refresh kiye.
+
+
+io=> server ki baat ho rhi hai
+socket=> single user ki baat ho rhi hai 
+
+Socket.io event(on change on submit mouse move ......) driven hota hai 
+
+on ==> ka mtlb hota hai event ko listen krna. 
+emit ==> ka mtlb hota event ko fire krna.()
+
+
+
+Home Work:-
+
+socket.emit()
+socket.broadcast().emit()
+io.emit()
+
+
+Events
+Adapters(Redis Adapter)
+Server(Middleware)
+Client(Socket instance)
